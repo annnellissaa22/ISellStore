@@ -6,9 +6,8 @@ using Microsoft.EntityFrameworkCore;
 
 namespace API.Controllers
 {
-    [ApiController]
-    [Route("api/[controller]")]
-    public class ProductsController
+
+    public class ProductsController : BaseApiController
     {
 
         private readonly StoreContext _context;
@@ -24,13 +23,9 @@ namespace API.Controllers
         {
              return await _context.Products.ToListAsync();
 
-            //return Ok(products);
+            
         }
 
-        /*private ActionResult<List<Product>> Ok(List<Product> products)
-        {
-            throw new NotImplementedException();
-        }*/
 
         [HttpGet("{id}")]
         public ActionResult<Product> GetProduct(int id)
